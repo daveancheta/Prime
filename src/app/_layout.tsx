@@ -1,6 +1,19 @@
+import { NAV_THEME } from "@/lib/theme";
+import { ThemeProvider } from "@react-navigation/native";
+import { PortalHost } from '@rn-primitives/portal';
 import { Stack } from "expo-router";
-import "../../global.css"
+import { StatusBar, useColorScheme } from "react-native";
+import "../../global.css";
 
 export default function RootLayout() {
-  return <Stack />;
+  const colorScheme = useColorScheme();
+  const theme = colorScheme === 'dark' ? 'dark' : 'light';
+
+  return (
+    <ThemeProvider value={NAV_THEME[theme]}>
+      <StatusBar barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'} />
+      <Stack screenOptions={{ headerShown: false }} />
+      <PortalHost />
+    </ThemeProvider>
+  );
 }
