@@ -34,7 +34,7 @@ export function SignInForm() {
             Welcome back! Please sign in to continue
           </CardDescription>
         </CardHeader>
-        <CardContent className="gap-6">
+        <CardContent className="gap-6 w-screen">
           <View className="gap-6">
             <View className="gap-1.5">
               <Label htmlFor="email">Email</Label>
