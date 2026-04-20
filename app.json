@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Prime",
-    "slug": "Prime",
+    "slug": "prime",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -17,7 +17,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.daveancheta.prime"
     },
     "web": {
       "output": "static",
@@ -39,6 +40,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "fe921ccc-bca5-4f7f-ae7c-48a466c79822"
+      }
+    },
+    "owner": "daveancheta"
   }
 }
