@@ -1,4 +1,5 @@
 import QueueMatch from '@/components/Home/QueueMatch';
+import RecruitingTeams from '@/components/Home/RecruitingTems';
 import { SignInForm } from '@/components/sign-in-form';
 import { authClient } from '@/lib/auth-client'
 import { router } from 'expo-router';
@@ -15,9 +16,10 @@ function Index() {
   }
 
   return (
-    <ScrollView style={{ paddingTop: insets.top}}>
-      <View className='w-full h-screen bg-zinc-900/30 p-4'>
+    <ScrollView style={{ paddingTop: insets.top }} contentContainerStyle={{ paddingBottom: insets.bottom + 20 }}> 
+      <View className='w-full bg-zinc-900/30 p-4'>
         <QueueMatch />
+        <RecruitingTeams />
       </View>
     </ScrollView>
   )

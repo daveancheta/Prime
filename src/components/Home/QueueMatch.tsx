@@ -5,9 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 function QueueMatch() {
     return (
         <View className='gap-3'>
-            {/* Main Card */}
-            <View className='bg-zinc-950 p-5 border border-zinc-800 rounded-xl'>
-                {/* Header: Status & Online Count */}
+            <View className='bg-zinc-950 p-5 border border-zinc-800'>
                 <View className='flex-row justify-between items-start mb-6'>
                     <View>
                         <Text className='text-yellow-500 font-black uppercase tracking-tighter text-xs'>
@@ -23,13 +21,11 @@ function QueueMatch() {
                     </View>
                 </View>
 
-                {/* Stats Grid */}
                 <View className='flex flex-row gap-3 w-full mb-6'>
                     <StatCard label="Rank" value="LEGEND" icon="trophy-outline" accent="border-yellow-500" />
                     <StatCard label="Mode" value="Multiplayer" icon="game-controller-outline" accent="border-zinc-700" />
                 </View>
 
-                {/* Action Group */}
                 <View className='gap-3'>
                     <TouchableOpacity activeOpacity={0.8} className='bg-white h-14 flex-row items-center justify-center rounded-sm border-b-4 border-zinc-400'>
                         <Ionicons name="play-sharp" size={20} color="black" />
@@ -40,24 +36,6 @@ function QueueMatch() {
                         <Ionicons name="add-circle-outline" size={18} color="#d4d4d8" />
                         <Text className='text-zinc-300 font-bold uppercase ml-2 tracking-widest text-xs'>Create Room</Text>
                     </Pressable>
-                </View>
-            </View>
-
-            {/* Active Voice Room - outside below main card */}
-            <View className='bg-zinc-900/80 border border-zinc-800 p-4 rounded-lg'>
-                <View className='flex-row justify-between items-center mb-3'>
-                    <Text className='text-white font-bold uppercase text-xs tracking-widest'>Active Room</Text>
-                    <View className='flex-row items-center bg-zinc-950 px-2 py-1 rounded border border-zinc-700'>
-                        <Ionicons name="lock-closed" size={10} color="#a1a1aa" />
-                        <Text className='text-zinc-400 text-[10px] font-bold ml-1 uppercase'>Private</Text>
-                    </View>
-                </View>
-                <View className='flex-row items-center justify-between'>
-                    <Text className='text-zinc-300 font-medium'>Squad Alpha - VOIP</Text>
-                    <View className='flex-row items-center'>
-                        <View className='w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse' />
-                        <Ionicons name="mic-sharp" size={16} color="#22c55e" />
-                    </View>
                 </View>
             </View>
         </View>
