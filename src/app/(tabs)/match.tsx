@@ -13,7 +13,7 @@ function Index() {
   return (
     <ScrollView>
       <View className='flex w-full h-screen justify-center items-center'>
-        <Text className='text-white'>Home</Text>
+        <Text className='text-white'>Match</Text>
         <Text className='text-white'>name: {session?.user?.name ?? 'No name'}</Text>
       </View>
     </ScrollView>
