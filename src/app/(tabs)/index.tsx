@@ -17,7 +17,7 @@ function Index() {
   }
 
   return (
-    <ScrollView style={{ paddingTop: insets.top }} contentContainerStyle={{ paddingBottom: insets.bottom + 20 }}> 
+    <ScrollView contentContainerStyle={{ paddingBottom: insets.bottom + 20 }}> 
       <View className='w-full bg-zinc-900/30 p-4'>
         <QueueMatch />
         <ActiveRooms />
