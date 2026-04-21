@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
 function QueueMatch() {
     return (
@@ -32,7 +33,8 @@ function QueueMatch() {
                         <Text className='text-black font-black uppercase ml-2 tracking-tight text-lg'>Find Match</Text>
                     </TouchableOpacity>
 
-                    <Pressable className='bg-transparent border border-zinc-800 h-12 flex-row items-center justify-center rounded-sm'>
+                    <Pressable className='bg-transparent border border-zinc-800 h-12 flex-row items-center justify-center rounded-sm'
+                    onPress={() => router.push("/match/create")}>
                         <Ionicons name="add-circle-outline" size={18} color="#d4d4d8" />
                         <Text className='text-zinc-300 font-bold uppercase ml-2 tracking-widest text-xs'>Create Room</Text>
                     </Pressable>

@@ -16,6 +16,7 @@
     "@react-navigation/bottom-tabs": "^7.15.5",
     "@react-navigation/elements": "^2.9.10",
     "@react-navigation/native": "^7.1.33",
+    "@rn-primitives/dialog": "^1.4.0",
     "@rn-primitives/label": "^1.4.0",
     "@rn-primitives/portal": "^1.4.0",
     "@rn-primitives/separator": "^1.4.0",

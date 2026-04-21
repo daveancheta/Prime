@@ -2,9 +2,9 @@ import { authClient } from "@/lib/auth-client"
 import { supabase } from "@/utils/supabase"
 
 export async function POST(req: Request) {
-    const { name, mode, game_mode, visibility, created_by } = await req.json()
+    const { name, mode, game_mode, visibility } = await req.json()
     
-
+    const { data: session } = await authClient.useSession()
     try {
         const { data, error } =await supabase
             .from('lobby')
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
                 mode,
                 game_mode,
                 visibility,
-                created_by
+                created_by: session?.user.id
             })
 
         return Response.json({
