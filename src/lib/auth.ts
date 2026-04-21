@@ -2,24 +2,27 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "..";
 import * as schema from "../db/schema";
+import { expo } from "@better-auth/expo";
 
 export const auth = betterAuth({
-    baseURL: "http://localhost:8081",
+    baseURL: "http://192.168.1.62:8081",
+    plugins: [expo()],
     trustedOrigins: [
+        "http://localhost:8081",
         "prime://",
+        "http://localhost:3000",
 
-        // Development mode - Expo's exp:// scheme with local IP ranges
         ...(process.env.NODE_ENV === "development" ? [
-            "exp://",                      // Trust all Expo URLs (prefix matching)
-            "exp://**",                    // Trust all Expo URLs (wildcard matching)
-            "exp://192.168.*.*:*/**",      // Trust 192.168.x.x IP range with any port and path
+            "exp://",
+            "exp://**",
+            "exp://192.168.*.*:*/**",
         ] : [])
     ],
     database: drizzleAdapter(db, {
-        provider: "pg", // or "mysql", "sqlite"
+        provider: "pg",
         schema: schema,
     }),
     emailAndPassword: {
-        enabled: true, // Enable authentication using email and password.
+        enabled: true,
     },
 });

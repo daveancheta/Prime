@@ -1,3 +1,4 @@
+import { useAuthStore } from '@/app/state/use-auth-store';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -16,13 +17,15 @@ import { Pressable, TextInput, View } from 'react-native';
 
 export function SignUpForm() {
   const passwordInputRef = React.useRef<TextInput>(null);
+  const [name, setName] = React.useState<string>('')
+  const [email, setEmail] = React.useState<string>('')
+  const [password, setPassword] = React.useState<string>('')
+  const { handleSignUpValidation, isValidating } = useAuthStore();
 
-  function onEmailSubmitEditing() {
-    passwordInputRef.current?.focus();
-  }
+  const handleSignUp = (e: any) => {
+    e.preventDefault
 
-  function onSubmit() {
-    // TODO: Submit form and navigate to protected screen if successful
+    handleSignUpValidation(name, email, password)
   }
 
   return (
@@ -45,6 +48,8 @@ export function SignUpForm() {
                 autoComplete="name"
                 returnKeyType="next"
                 submitBehavior="submit"
+                value={name}
+                onChangeText={setName}
               />
             </View>
             <View className="gap-1.5">
@@ -57,6 +62,8 @@ export function SignUpForm() {
                 autoCapitalize="none"
                 returnKeyType="next"
                 submitBehavior="submit"
+                value={email}
+                onChangeText={setEmail}
               />
             </View>
             <View className="gap-1.5">
@@ -68,9 +75,11 @@ export function SignUpForm() {
                 secureTextEntry
                 returnKeyType="send"
                 placeholder='Enter your password'
+                value={password}
+                onChangeText={setPassword}
               />
             </View>
-            <Button className="w-full" onPress={onSubmit}>
+            <Button className="w-full" onPress={handleSignUp}>
               <Text>Continue</Text>
             </Button>
           </View>

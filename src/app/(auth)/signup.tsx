@@ -1,8 +1,19 @@
 import { SignUpForm } from '@/components/sign-up-form'
-import React from 'react'
-import { ScrollView, View } from 'react-native'
+import { auth } from '@/lib/auth'
+import { authClient } from '@/lib/auth-client'
+import { router } from 'expo-router'
+import React, { useEffect } from 'react'
+import { Pressable, ScrollView, Text, View } from 'react-native'
 
 function Signup() {
+    const { data: session, isPending } = authClient.useSession()
+
+    useEffect(() => {
+        if (session && !isPending) {
+            router.push('/(tabs)')
+        }
+    }, [session, isPending])
+
     return (
         <ScrollView
             keyboardShouldPersistTaps="handled"
@@ -11,6 +22,9 @@ function Signup() {
             <View className="w-full h-screen justify-center items-center">
                 <SignUpForm />
             </View>
+            <Pressable onPress={() => {
+                router.replace('/(tabs)')
+            }}><Text className='text-white'>Go to Home</Text></Pressable>
         </ScrollView>
     )
 }

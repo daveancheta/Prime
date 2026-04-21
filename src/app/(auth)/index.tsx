@@ -1,7 +1,19 @@
 import { SignInForm } from "@/components/sign-in-form";
+import { authClient } from "@/lib/auth-client";
+import { router } from "expo-router";
+import { useEffect } from "react";
 import { View, ScrollView } from "react-native";
 
 export default function Index() {
+  const { data: session, isPending } = authClient.useSession()
+
+  useEffect(() => {
+    if (session && !isPending) {
+      router.push('/(tabs)')
+    }
+  }, [session, isPending])
+
+
   return (
     <ScrollView
       keyboardShouldPersistTaps="handled"
