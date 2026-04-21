@@ -1,4 +1,4 @@
-import { useMatchStore } from '@/app/state/use-match-store';
+import { useLobbyStore } from '@/app/state/use-lobby-store';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -25,7 +25,7 @@ export function CreateLobby() {
     const [mode, setMode] = useState('MULTIPLAYER');
     const [gameMode, setGameMode] = useState('HP');
     const [visibility, setVisibility] = useState('PUBLIC');
-    const { handleCreateLobbyValidation, isValidating } = useMatchStore()
+    const { handleCreateLobbyValidation, isValidating } = useLobbyStore()
 
     const handleCreateLobby = () => {
         handleCreateLobbyValidation(name, mode, gameMode, visibility)

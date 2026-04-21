@@ -8,7 +8,7 @@ interface MatchState {
     handleCreateLobbyValidation: (name: string, mode: string, game_mode: string, visibility: string) => Promise<{ success: boolean; error?: any }>
 }
 
-export const useMatchStore = create<MatchState>((set) => ({
+export const useLobbyStore = create<MatchState>((set) => ({
     isValidating: false,
 
     handleCreateLobbyValidation: async (name, mode, game_mode, visibility) => {
