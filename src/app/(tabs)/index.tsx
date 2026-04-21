@@ -1,3 +1,4 @@
+import ActiveRooms from '@/components/Home/ActiveRooms';
 import QueueMatch from '@/components/Home/QueueMatch';
 import RecruitingTeams from '@/components/Home/RecruitingTems';
 import { SignInForm } from '@/components/sign-in-form';
@@ -19,6 +20,7 @@ function Index() {
     <ScrollView style={{ paddingTop: insets.top }} contentContainerStyle={{ paddingBottom: insets.bottom + 20 }}> 
       <View className='w-full bg-zinc-900/30 p-4'>
         <QueueMatch />
+        <ActiveRooms />
         <RecruitingTeams />
       </View>
     </ScrollView>
