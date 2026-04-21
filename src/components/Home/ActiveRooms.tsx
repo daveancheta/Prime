@@ -67,7 +67,7 @@ function ActiveRooms() {
                                 {room.mode.toUpperCase()}
                             </Text>
                             <Text className="text-zinc-500 text-[10px]">|</Text>
-                            <Text className="text-zinc-500 font-bold text-[10px] uppercase tracking-tighter">
+                            <Text className="text-yellow-500 font-bold text-[10px] uppercase tracking-tighter">
                                 {room.game_mode.toUpperCase()}
                             </Text>
                         </View>
