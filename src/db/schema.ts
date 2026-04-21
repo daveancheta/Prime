@@ -90,6 +90,25 @@ export const lobby = pgTable(
   }
 )
 
+export const recruitment = pgTable(
+  "recruitment",
+  {
+    id: text("id").primaryKey(),
+    clan_name: text("clan_name").notNull(),
+    tier: text("tier").notNull(),
+    region: text("region").notNull(),
+    slot: text("slot").notNull(),
+    image: text("image").notNull(),
+    status: text("status").notNull(),
+    created_by: text("created_by").notNull().references(() => user.id, { onDelete: "cascade" }),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at")
+      .defaultNow()
+      .$onUpdate(() => /* @__PURE__ */ new Date())
+      .notNull(),
+  }
+)
+
 export const userRelations = relations(user, ({ many }) => ({
   sessions: many(session),
   accounts: many(account),

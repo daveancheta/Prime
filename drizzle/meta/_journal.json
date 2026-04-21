@@ -15,6 +15,13 @@
       "when": 1776761032510,
       "tag": "0001_open_rocket_raccoon",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1776786539387,
+      "tag": "0002_broad_iceman",
+      "breakpoints": true
     }
   ]
 }
