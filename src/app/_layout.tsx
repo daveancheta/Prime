@@ -7,11 +7,11 @@ import "../../global.css";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-  const theme = colorScheme === 'dark' ? 'dark' : 'light';
+  const theme = colorScheme === 'dark' ? 'dark' : 'dark';
 
   return (
     <ThemeProvider value={NAV_THEME[theme]}>
-      <StatusBar barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'} />
+      <StatusBar barStyle={colorScheme === 'dark' ? 'dark-content' : 'dark-content'} />
       <Stack screenOptions={{ headerShown: false, animation: 'slide_from_bottom' }} >
         <Stack.Screen name="(auth)" />
         <Stack.Screen name="(tabs)" />
