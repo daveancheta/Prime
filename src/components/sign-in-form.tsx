@@ -74,8 +74,8 @@ export function SignInForm() {
                 onChangeText={setPassword}
               />
             </View>
-            <Button className="w-full" onPress={handleSignIn}>
-              <Text>Continue</Text>
+            <Button className="w-full" onPress={handleSignIn} disabled={isValidating}>
+              <Text>{isValidating ? "Loading..." : "Continue"}</Text>
             </Button>
           </View>
           <Text className="text-center text-sm">
