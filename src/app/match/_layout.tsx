@@ -4,9 +4,9 @@ export default function MatchLayout() {
   return (
     <Stack>
       <Stack.Screen 
-        name="index" 
+        name="create" 
         options={{ 
-          title: 'Home',
+          headerTitle: 'Create Lobby',
           headerStyle: { backgroundColor: '#09090b' },
           headerTintColor: 'white',
           headerTitleStyle: { fontWeight: 'bold' },

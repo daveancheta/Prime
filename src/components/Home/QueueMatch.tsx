@@ -36,7 +36,7 @@ function QueueMatch() {
                     <Pressable className='bg-transparent border border-zinc-800 h-12 flex-row items-center justify-center rounded-sm'
                     onPress={() => router.push("/match/create")}>
                         <Ionicons name="add-circle-outline" size={18} color="#d4d4d8" />
-                        <Text className='text-zinc-300 font-bold uppercase ml-2 tracking-widest text-xs'>Create Room</Text>
+                        <Text className='text-zinc-300 font-bold uppercase ml-2 tracking-widest text-xs'>Create Lobby</Text>
                     </Pressable>
                 </View>
             </View>
