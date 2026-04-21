@@ -12,7 +12,9 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={NAV_THEME[theme]}>
       <StatusBar barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'} />
-      <Stack screenOptions={{ headerShown: false }} />
+      <Stack screenOptions={{ headerShown: false, animation: 'slide_from_bottom' }} >
+        <Stack.Screen name="(auth)" />
+      </Stack>
       <PortalHost />
     </ThemeProvider>
   );
