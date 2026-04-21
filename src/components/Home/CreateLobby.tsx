@@ -1,6 +1,8 @@
+import { useMatchStore } from '@/app/state/use-match-store';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Button } from '../ui/button';
 
 const MODES = ['MULTIPLAYER', 'BATTLE ROYALE', 'PRIVATE ROOM'];
 
@@ -23,10 +25,14 @@ export function CreateLobby() {
     const [mode, setMode] = useState('MULTIPLAYER');
     const [gameMode, setGameMode] = useState('HP');
     const [visibility, setVisibility] = useState('PUBLIC');
+    const { handleCreateLobbyValidation, isValidating } = useMatchStore()
+
+    const handleCreateLobby = () => {
+        handleCreateLobbyValidation(name, mode, gameMode, visibility)
+    }
 
     return (
         <View className='w-full bg-zinc-950 border p-5 gap-6'>
-            {/* Header */}
             <View>
                 <Text className='text-zinc-500 font-bold uppercase tracking-[3px] text-[10px] mb-1'>
                     Configuration
@@ -36,12 +42,12 @@ export function CreateLobby() {
                 </Text>
             </View>
 
-            {/* Lobby Name */}
             <View className='gap-2'>
                 <Text className='text-zinc-400 uppercase text-[10px] font-black tracking-widest'>
                     Lobby Name
                 </Text>
                 <TextInput
+                    maxLength={12}
                     value={name}
                     onChangeText={setName}
                     placeholder='ENTER LOBBY NAME'
@@ -50,7 +56,6 @@ export function CreateLobby() {
                 />
             </View>
 
-            {/* Mode */}
             <View className='gap-2'>
                 <Text className='text-zinc-400 uppercase text-[10px] font-black tracking-widest'>
                     Mode
@@ -63,15 +68,13 @@ export function CreateLobby() {
                                 setMode(m)
                                 setGameMode(DEFAULT_GAME_MODE[m])
                             }}
-                            className={`w-full h-11 flex-row items-center justify-between px-4 border ${
-                                mode === m
-                                    ? 'bg-white border-white'
-                                    : 'bg-transparent border-zinc-700'
-                            }`}
+                            className={`w-full h-11 flex-row items-center justify-between px-4 border ${mode === m
+                                ? 'bg-white border-white'
+                                : 'bg-transparent border-zinc-700'
+                                }`}
                         >
-                            <Text className={`font-black uppercase text-xs tracking-widest ${
-                                mode === m ? 'text-black' : 'text-zinc-400'
-                            }`}>
+                            <Text className={`font-black uppercase text-xs tracking-widest ${mode === m ? 'text-black' : 'text-zinc-400'
+                                }`}>
                                 {m}
                             </Text>
                             {mode === m && (
@@ -82,7 +85,6 @@ export function CreateLobby() {
                 </View>
             </View>
 
-            {/* Game Mode */}
             <View className='gap-2'>
                 <Text className='text-zinc-400 uppercase text-[10px] font-black tracking-widest'>
                     Game Mode
@@ -92,15 +94,13 @@ export function CreateLobby() {
                         <Pressable
                             key={gm}
                             onPress={() => setGameMode(gm)}
-                            className={`px-4 h-10 items-center justify-center border ${
-                                gameMode === gm
-                                    ? 'bg-yellow-500 border-yellow-500'
-                                    : 'bg-transparent border-zinc-700'
-                            }`}
+                            className={`px-4 h-10 items-center justify-center border ${gameMode === gm
+                                ? 'bg-yellow-500 border-yellow-500'
+                                : 'bg-transparent border-zinc-700'
+                                }`}
                         >
-                            <Text className={`font-black uppercase text-[10px] tracking-widest ${
-                                gameMode === gm ? 'text-black' : 'text-zinc-400'
-                            }`}>
+                            <Text className={`font-black uppercase text-[10px] tracking-widest ${gameMode === gm ? 'text-black' : 'text-zinc-400'
+                                }`}>
                                 {gm}
                             </Text>
                         </Pressable>
@@ -108,7 +108,6 @@ export function CreateLobby() {
                 </View>
             </View>
 
-            {/* Visibility */}
             <View className='gap-2'>
                 <Text className='text-zinc-400 uppercase text-[10px] font-black tracking-widest'>
                     Visibility
@@ -118,20 +117,18 @@ export function CreateLobby() {
                         <Pressable
                             key={v}
                             onPress={() => setVisibility(v)}
-                            className={`flex-1 h-11 flex-row items-center justify-center gap-2 border ${
-                                visibility === v
-                                    ? 'bg-zinc-800 border-zinc-600'
-                                    : 'bg-transparent border-zinc-700'
-                            }`}
+                            className={`flex-1 h-11 flex-row items-center justify-center gap-2 border ${visibility === v
+                                ? 'bg-zinc-800 border-zinc-600'
+                                : 'bg-transparent border-zinc-700'
+                                }`}
                         >
                             <Ionicons
                                 name={v === 'PRIVATE' ? 'lock-closed' : 'globe-outline'}
                                 size={12}
                                 color={visibility === v ? 'white' : '#52525b'}
                             />
-                            <Text className={`font-black uppercase text-[10px] tracking-widest ${
-                                visibility === v ? 'text-white' : 'text-zinc-500'
-                            }`}>
+                            <Text className={`font-black uppercase text-[10px] tracking-widest ${visibility === v ? 'text-white' : 'text-zinc-500'
+                                }`}>
                                 {v}
                             </Text>
                         </Pressable>
@@ -141,16 +138,16 @@ export function CreateLobby() {
 
             <View className='h-[1px] bg-zinc-800' />
 
-            {/* Submit */}
-            <TouchableOpacity
-                activeOpacity={0.8}
+            <Button
                 className='w-full bg-white h-14 flex-row items-center justify-center gap-2'
+                onPress={handleCreateLobby}
+                disabled={!name || isValidating}
             >
                 <Ionicons name="add-circle" size={18} color="black" />
                 <Text className='text-black font-black uppercase tracking-widest text-sm'>
                     Create Lobby
                 </Text>
-            </TouchableOpacity>
+            </Button>
         </View>
     );
 }
