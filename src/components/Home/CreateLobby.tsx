@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, TextInput, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 const MODES = ['MULTIPLAYER', 'BATTLE ROYALE', 'PRIVATE ROOM'];
 
