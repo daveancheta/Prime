@@ -17,7 +17,7 @@ function Index() {
   }
 
   return (
-    <ScrollView> 
+    <ScrollView showsVerticalScrollIndicator={false}> 
       <View className='w-full bg-zinc-900/30 p-4'>
         <QueueMatch />
         <ActiveRooms />

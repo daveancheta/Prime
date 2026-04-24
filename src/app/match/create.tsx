@@ -1,5 +1,4 @@
 import { CreateLobby } from '@/components/Home/CreateLobby';
-import { SignInForm } from '@/components/sign-in-form';
 import { authClient } from '@/lib/auth-client'
 import { router } from 'expo-router';
 import React from 'react'
@@ -15,7 +14,7 @@ function Create() {
   }
 
   return (
-    <ScrollView contentContainerStyle={{ paddingBottom: insets.bottom + 20 }}>
+    <ScrollView contentContainerStyle={{ paddingBottom: insets.bottom + 20 }} showsVerticalScrollIndicator={false}>
       <View className='flex w-full justify-center items-center' >
         <CreateLobby />
       </View>
