@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const teams = [
     {
@@ -46,6 +47,8 @@ const teams = [
 ]
 
 function RecruitingTeams() {
+    const navigation = useNavigation();
+
     return (
         <View className='gap-4 mt-5'>
             <View className='flex-row justify-between items-end px-1'>
@@ -53,11 +56,22 @@ function RecruitingTeams() {
                     <Text className='text-zinc-500 font-bold uppercase tracking-[3px] text-[10px] mb-1'>
                         Clan Recruitment
                     </Text>
-                    <Text className='text-white font-black uppercase tracking-widest text-xl'>
-                        Active Squads
-                    </Text>
+                    <View className="flex-row items-center gap-2">
+                        <Text className='text-white font-black uppercase tracking-widest text-xl'>
+                            Active Squads
+                        </Text>
+                        <TouchableOpacity 
+                            className="bg-yellow-500 rounded-full w-5 h-5 items-center justify-center mb-1"
+                        >
+                            <Ionicons name="add" size={14} color="black" />
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <TouchableOpacity activeOpacity={0.7} className="border-b border-zinc-700 pb-1">
+                
+                <TouchableOpacity 
+                    activeOpacity={0.7} 
+                    className="border-b border-zinc-700 pb-1"
+                >
                     <Text className='text-zinc-400 font-bold uppercase tracking-tighter text-xs'>
                         View All
                     </Text>
